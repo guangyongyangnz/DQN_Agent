@@ -1,10 +1,10 @@
 import gym
 from stable_baselines3 import DQN
-from stable_baselines3.common.vec_env import DummyVecEnv
+# from stable_baselines3.common.vec_env import DummyVecEnv
 
-env = DummyVecEnv([lambda: gym.make("CartPole-v1")])
+# env = DummyVecEnv([lambda: gym.make("CartPole-v1")])
 
-env = gym.make("CartPole-v1")
+env = gym.make("CartPole-v1", render_mode="human")
 model = DQN("MlpPolicy", env, verbose=1, tensorboard_log="./dqn_cartpole_log/")
 model.learn(total_timesteps=50000)
 
